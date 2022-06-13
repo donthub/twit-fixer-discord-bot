@@ -10,7 +10,7 @@ client.once('ready', () => {
 client.on('messageCreate', message => {
     const re = /^\s*https:\/\/([^\s]+\.)?twitter.com\/([^\s?]+)(\?[^\s]*)?\s*$/;
     const match = re.exec(message.content);
-    if (!match || isRestricted(message)) {
+    if (!match || isExcluded(message)) {
         return;
     }
 
@@ -21,7 +21,7 @@ client.on('messageCreate', message => {
 
 client.login(token);
 
-function isRestricted(message) {
+function isExcluded(message) {
     const serverId = message.guild.id;
     const included = [];
     const excluded = [];
