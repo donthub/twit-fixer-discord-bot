@@ -10,12 +10,13 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
+// When new message is posted
 client.on('messageCreate', message => {
-    const re = /^https:\/\/twitter.com\/([^\s]+)\s*$/;
+    const re = /^\s*https:\/\/([^\s]+\.)?twitter.com\/([^\s?]+)(\?[^\s]*)?\s*$/;
     const match = re.exec(message.content);
     if (match) {
         message.delete();
-        message.channel.send(`Originally posted by <@${message.author.id}>\nhttps://vxtwitter.com/${match[1]}`);
+        message.channel.send(`Originally posted by <@${message.author.id}>\nhttps://vxtwitter.com/${match[2]}`);
     }
 });
 
