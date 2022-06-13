@@ -1,3 +1,10 @@
 {
-    "token": ""
+    "token": "",
+    "servers": [{
+        "id": "",
+        "channels": {
+            "included": [],
+            "excluded": []
+        }
+    }]
 }
